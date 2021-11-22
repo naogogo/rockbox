@@ -1,0 +1,28 @@
+# Simple WPS to show a big album cover plus track info,
+# or just track info if an album cover is not available.
+
+# Select viewport depending whether cover art is found or not
+%?C<%Vd(a)|%Vd(b)>
+
+# Track time
+%V(225,180,90,20,1)
+%ac%pc/%pt
+
+# Album Art
+%ax%Vl(a,0,10,220,220,-)
+%Cl(0,0,220,220,c,c)
+%Cd
+
+# Track info next to album art
+%ax%Vl(a,225,70,90,130,1)
+%s%ac%?it<%it|%fn>
+%s%ac%?ia<%ia|%?d(2)<%d(2)|%(root%)>>
+%s%ac%?id<%id|%?d(1)<%d(1)|%(root%)>>
+%s%ac%?iy<%iy>
+
+# Track info without album art
+%ax%Vl(b,0,30,-,130,1)
+%s%ac%?it<%it|%fn>
+%s%ac%?ia<%ia|%?d(2)<%d(2)|%(root%)>>
+%s%ac%?id<%id|%?d(1)<%d(1)|%(root%)>>
+%s%ac%?iy<%iy>
